@@ -1,8 +1,8 @@
 import 'package:crud_basico/view/commun/components/NoteList.dart';
 import 'package:flutter/material.dart';
 import 'AddEditNoteScreen.dart';
-import 'data_base/DatabaseHelper.dart';
-import 'model/note_model.dart';
+import '../data_base/DatabaseHelper.dart';
+import '../model/note_model.dart';
 
 class HomeScreen extends StatefulWidget {
   final int userId;

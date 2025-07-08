@@ -1,7 +1,7 @@
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 import '../model/note_model.dart';
-import '../model/user_model.dart'; // <<< Importar o novo modelo de usuário
+import '../model/user_model.dart';
 
 class DatabaseHelper {
   static final DatabaseHelper instance = DatabaseHelper._init();
@@ -10,14 +10,13 @@ class DatabaseHelper {
 
   Future<Database> get database async {
     if (_database != null) return _database!;
-    _database = await _initDB('app.db'); // Renomeado para um nome mais genérico
+    _database = await _initDB('app.db');
     return _database!;
   }
 
   Future<Database> _initDB(String filePath) async {
     final dbPath = await getDatabasesPath();
     final path = join(dbPath, filePath);
-    // Habilitar chaves estrangeiras
     return await openDatabase(path, version: 1, onCreate: _createDB);
   }
 
@@ -26,7 +25,6 @@ class DatabaseHelper {
     const textType = 'TEXT NOT NULL';
     const integerType = 'INTEGER NOT NULL';
 
-    // Tabela de Usuários
     await db.execute('''
       CREATE TABLE users (
         id $idType,
@@ -35,7 +33,6 @@ class DatabaseHelper {
       )
     ''');
 
-    // Tabela de Anotações com relacionamento
     await db.execute('''
       CREATE TABLE notes (
         id $idType,
@@ -48,16 +45,12 @@ class DatabaseHelper {
     ''');
   }
 
-  // --- MÉTODOS CRUD PARA USUÁRIOS ---
-
-  // Criar um novo usuário
   Future<User> createUser(User user) async {
     final db = await instance.database;
     final id = await db.insert('users', user.toMap());
     return user.copyWith(id: id);
   }
 
-  // Buscar um usuário pelo email e senha (para login)
   Future<User?> getUserByEmail(String email, String password) async {
     final db = await instance.database;
     final maps = await db.query(
@@ -74,15 +67,12 @@ class DatabaseHelper {
     }
   }
 
-  // --- MÉTODOS CRUD PARA ANOTAÇÕES (MODIFICADOS) ---
-
   Future<Note> createNote(Note note) async {
     final db = await instance.database;
     final id = await db.insert('notes', note.toMap());
     return note.copyWith(id: id);
   }
 
-  // Ler todas as anotações DE UM USUÁRIO ESPECÍFICO
   Future<List<Note>> readAllNotes(int userId) async {
     final db = await instance.database;
     final orderBy = 'createdAt DESC';

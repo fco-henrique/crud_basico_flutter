@@ -3,7 +3,7 @@ import 'package:crud_basico/view/commun/components/CustomPasswordFormField.dart'
 import 'package:crud_basico/view/commun/components/CustomPrimaryButton.dart';
 import 'package:flutter/material.dart';
 import '../data_base/DatabaseHelper.dart';
-import '../HomeScreen.dart';
+import 'HomeScreen.dart';
 import 'RegistrationScreen.dart';
 
 class LoginScreen extends StatefulWidget {
