@@ -2,8 +2,8 @@ import 'package:crud_basico/view/commun/components/CustomFormField.dart';
 import 'package:crud_basico/view/commun/components/CustomPasswordFormField.dart';
 import 'package:crud_basico/view/commun/components/CustomPrimaryButton.dart';
 import 'package:flutter/material.dart';
-import 'data_base/DatabaseHelper.dart';
-import 'model/user_model.dart';
+import '../data_base/DatabaseHelper.dart';
+import '../model/user_model.dart';
 
 class RegistrationScreen extends StatefulWidget {
   const RegistrationScreen({super.key});

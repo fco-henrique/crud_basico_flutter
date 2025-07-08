@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:async'; // Para usar o Timer
-import '../LoginScreen.dart'; // Importe a sua tela principal
+import 'LoginScreen.dart'; // Importe a sua tela principal
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});

@@ -2,10 +2,9 @@ import 'package:crud_basico/view/commun/components/CustomFormField.dart';
 import 'package:crud_basico/view/commun/components/CustomPasswordFormField.dart';
 import 'package:crud_basico/view/commun/components/CustomPrimaryButton.dart';
 import 'package:flutter/material.dart';
-import 'data_base/DatabaseHelper.dart';
-import 'HomeScreen.dart';
+import '../data_base/DatabaseHelper.dart';
+import '../HomeScreen.dart';
 import 'RegistrationScreen.dart';
-import 'model/user_model.dart'; // Para navegar para o cadastro
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
